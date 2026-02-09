@@ -6,6 +6,12 @@ A comprehensive AI-powered vision system that combines object detection, depth e
 
 **Dristi** (meaning "vision" in Sanskrit) is a semester project that creates an accessible vision assistance system using state-of-the-art deep learning models. The system processes real-time camera feed to provide voice-based environmental awareness.
 
+### Project Status
+- ✅ **Core Features**: Stable and production-ready
+- ✅ **Optimization**: Complete with performance profiling
+- ✅ **Documentation**: Comprehensive and up-to-date
+- 🔄 **Active Development**: Enhanced for accessibility and performance
+
 ### Key Features
 
 - **Real-time Object Detection** using YOLOv8
@@ -48,10 +54,21 @@ src/
 
 ## 📋 Requirements
 
-- Python 3.8+
-- Webcam/Camera
-- 4GB+ RAM (8GB+ recommended)
-- GPU recommended (but CPU works)
+### System Requirements
+- **Python**: 3.8+
+- **Webcam/Camera**: Required
+- **RAM**: 4GB+ (8GB+ recommended)
+- **GPU**: Optional (RTX series recommended for better performance)
+
+### Verified Versions
+- opencv-python >= 4.13.0
+- torch >= 2.0.0
+- numpy >= 2.0.0
+- ultralytics >= 8.0.0
+- timm >= 0.9.0
+- pyttsx3 >= 2.90
+- Pillow >= 9.0.0
+- CLIP (via git)
 
 ## 🚀 Quick Start
 
@@ -258,11 +275,31 @@ This is a semester project. Use for educational purposes.
 
 ## 👨‍💻 Development
 
+### Project Structure
+```
+dristi/
+├── src/
+│   ├── vision/           # Computer vision modules
+│   │   ├── object_detector.py
+│   │   ├── depth_estimator.py
+│   │   └── scene_analyzer.py
+│   ├── audio/            # Audio/voice modules
+│   │   └── voice_engine.py
+│   └── core/             # Core integration
+│       └── dristi_system.py
+├── data/                 # Models and datasets
+├── runs/                 # Output and results
+├── documentations/       # Additional documentation
+├── notebooks/            # Jupyter notebooks for testing
+└── requirements.txt      # Python dependencies
+```
+
 ### Adding New Features
 1. Create module in appropriate directory under `src/`
 2. Inherit from base class (if applicable)
 3. Integrate with `DristiSystem` in `src/core/dristi_system.py`
 4. Update `app.py` to use new module
+5. Add comprehensive docstrings and type hints
 
 ### Testing Individual Modules
 ```bash
@@ -276,6 +313,29 @@ python src/audio/voice_engine.py
 python app.py
 ```
 
+### Code Quality
+- Follow PEP 8 style guidelines
+- Add type hints to new functions
+- Include docstrings for all public functions
+- Test modules individually before integration
+
+## 🤝 Contributing
+
+We welcome contributions to improve Dristi. Please follow these guidelines:
+
+1. **Fork and Clone**: Create a personal fork and clone locally
+2. **Create Branch**: Use descriptive branch names (e.g., `feature/pose-detection`)
+3. **Make Changes**: Keep commits focused and descriptive
+4. **Test Thoroughly**: Verify your changes work on different hardware
+5. **Update Documentation**: Add/update docs for new features
+6. **Submit PR**: Include clear description of changes and testing done
+
+### Reporting Issues
+- Check existing issues first
+- Include system specs (OS, Python version, hardware)
+- Provide minimal reproduction steps
+- Attach relevant logs or screenshots
+
 ## 🎯 Future Enhancements
 
 - [ ] Real-time pose detection
@@ -287,8 +347,21 @@ python app.py
 - [ ] Customizable alerts
 - [ ] Data logging and analytics
 
+## 📖 Additional Resources
+
+- **Detailed Architecture**: See [`documentations/system_architecture.md`](documentations/system_architecture.md)
+- **Optimization Guide**: See [`OPTIMIZATION.md`](OPTIMIZATION.md)
+- **Quick Start**: See [`QUICK_START.md`](QUICK_START.md)
+- **Jupyter Notebooks**: See [`notebooks/`](notebooks/) for experimental code
+
+## 📞 Support & Questions
+
+- **Issues**: Create an issue on GitHub for bugs and feature requests
+- **Discussions**: Use GitHub Discussions for questions and ideas
+- **Documentation**: Check the `documentations/` folder for detailed guides
+
 ---
 
 **Made with ❤️ for accessibility**
 
-For questions or issues, check the documentation in `documentations/` directory.
+Last Updated: February 2025 | Version: 1.0
