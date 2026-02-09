@@ -37,14 +37,14 @@ A comprehensive AI-powered real-time vision system that combines object detectio
 ├──────────────────────────────────────┤
 │ ┌──────────────────────────────────┐ │
 │ │ VISION MODULES                   │ │
-│ ├────────────────────────────────┤ │
-│ │ • ObjectDetector (YOLOv8)       │ │
-│ │ • DepthEstimator (MiDaS)        │ │
-│ │ • SceneAnalyzer (CLIP)          │ │
+│ ├──────────────────────────────────┤ │
+│ │ • ObjectDetector (YOLOv8)        │ │
+│ │ • DepthEstimator (MiDaS)         │ │
+│ │ • SceneAnalyzer (CLIP)           │ │
 │ └──────────────────────────────────┘ │
 │ ┌──────────────────────────────────┐ │
 │ │ AUDIO MODULE                     │ │
-│ ├────────────────────────────────┤ │
+│ ├──────────────────────────────────┤ │
 │ │ • VoiceEngine (pyttsx3)          │ │
 │ │ • Description Generator          │ │
 │ └──────────────────────────────────┘ │
