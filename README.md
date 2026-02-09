@@ -500,10 +500,6 @@ Educational project. Use for learning and research purposes.
 - Configuration: See `config.yaml` comments
 - Testing: See `test_results.txt`
 
-## 👥 Authors
-
-**Abhishek H** - Project Creator and Developer
-
 ## 🙏 Acknowledgments
 
 - Ultralytics for YOLOv8
