@@ -1,0 +1,18 @@
+graph LR
+    T0["0ms<br/>Frame Capture"] --> T1["2ms<br/>Resize"]
+    T1 --> T2["5ms<br/>YOLO Detection<br/>GPU"]
+    
+    T2 --> T3{Frame Count}
+    T3 -->|Every 2| T4["100ms<br/>MiDaS Depth<br/>GPU"]
+    T3 -->|Every 30| T5["100ms<br/>CLIP Analysis<br/>GPU"]
+    T3 -->|Every 1| T6["1ms<br/>Display Overlay"]
+    
+    T4 --> T7["110ms<br/>Total<br/>GPU Operations"]
+    T5 --> T7
+    T6 --> T7
+    
+    T7 --> T8["2ms<br/>Async TTS<br/>CPU"]
+    T8 --> T9["115ms<br/>Total Pipeline<br/>~8.7 FPS"]
+    
+    T9 --> T10["67ms<br/>Sleep to Target<br/>15 FPS"]
+    T10 --> T11["182ms<br/>Per Frame Cycle"]

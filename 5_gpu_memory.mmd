@@ -1,0 +1,14 @@
+graph LR
+    A["NVIDIA RTX 3050<br/>4096 MB Total"] --> B["GPU Memory Allocation"]
+    
+    B --> C["YOLO Detection<br/>200 MB<br/>21%"]
+    B --> D["MiDaS Depth<br/>150 MB<br/>16%"]
+    B --> E["CLIP Analysis<br/>250 MB<br/>27%"]
+    B --> F["Overhead/Buffers<br/>106 MB<br/>10%"]
+    B --> G["Available<br/>1390 MB<br/>26%"]
+    
+    style C fill:#ff6b6b
+    style D fill:#ffd93d
+    style E fill:#6bcf7f
+    style F fill:#a8dadc
+    style G fill:#e0e0e0

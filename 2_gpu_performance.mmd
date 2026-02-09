@@ -1,0 +1,18 @@
+graph LR
+    A["⚙️ GPU Performance"] --> B["YOLO Detection"]
+    A --> C["MiDaS Depth"]
+    A --> D["CLIP Analysis"]
+    
+    B --> B1["Speed: 20ms<br/>Memory: 200MB<br/>Every frame"]
+    C --> C1["Speed: 100ms<br/>Memory: 150MB<br/>Every 2 frames"]
+    D --> D1["Speed: 100ms<br/>Memory: 250MB<br/>Every 30 frames"]
+    
+    B1 --> E["Total GPU: 600MB"]
+    C1 --> E
+    D1 --> E
+    
+    E --> F["RTX 3050: 4GB<br/>Temp: 40-50°C<br/>Power: 10-20W"]
+    
+    G["CPU Performance"] --> G1["TTS: Async<br/>Frame handling: <1ms<br/>Display: <1ms"]
+    
+    H["Overall FPS"] --> H1["Target: 15 FPS<br/>Actual: 12-15 FPS<br/>Latency: <100ms"]

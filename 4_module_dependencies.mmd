@@ -1,0 +1,24 @@
+graph TB
+    APP["app.py<br/>Main Application"]
+    APP_OPT["app_optimized.py<br/>Optimized Version"]
+    
+    APP --> CORE["core/dristi_system.py<br/>Integration System"]
+    APP_OPT --> CORE
+    
+    CORE --> OBJ["vision/object_detector.py<br/>YOLOv8 on GPU"]
+    CORE --> DEPTH["vision/depth_estimator.py<br/>MiDaS on GPU"]
+    CORE --> SCENE["vision/scene_analyzer.py<br/>CLIP on GPU"]
+    CORE --> VOICE["audio/voice_engine.py<br/>Text-to-Speech"]
+    
+    OBJ --> TORCH1["PyTorch<br/>CUDA 13.0"]
+    DEPTH --> TORCH1
+    SCENE --> TORCH1
+    
+    VOICE --> TTS["pyttsx3"]
+    
+    APP --> CV2["OpenCV<br/>cv2"]
+    APP_OPT --> CV2
+    
+    TORCH1 --> GPU["NVIDIA RTX 3050<br/>4GB VRAM"]
+    
+    CV2 --> DISPLAY["Display/Headless<br/>Mode"]

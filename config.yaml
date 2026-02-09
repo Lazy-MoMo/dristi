@@ -1,0 +1,89 @@
+# DRISTI Configuration File - Performance Tuning
+
+# Display Settings
+display:
+  window_width: 640
+  target_fps: 15
+  show_overlay: true
+
+# Vision Modules
+modules:
+  object_detection:
+    enabled: true
+    model: yolov8n.pt
+    confidence: 0.5
+    input_size: 320  # Smaller = faster
+    process_every_n_frames: 2
+
+  depth_estimation:
+    enabled: true  # GPU accelerated
+    scale: 0.5  # 0.5 = 50% resolution (faster)
+    process_every_n_frames: 2
+
+  scene_analysis:
+    enabled: true  # CLIP, can be memory intensive
+    process_every_n_frames: 60
+
+# Audio Settings
+audio:
+  enabled: true
+  speech_rate: 150  # 50-300
+  volume: 1.0  # 0.0-1.0
+  use_female_voice: true
+  narration_interval: 15  # seconds
+
+# Performance Optimization
+optimization:
+  # Frame processing intervals (in frames)
+  detection_interval: 2
+  scene_analysis_interval: 60
+  depth_estimation_interval: 10
+  
+  # Threading
+  use_threading: true
+  num_threads: 2
+  
+  # Caching
+  cache_detections: true
+  cache_scene: true
+
+# Profiles (uncomment to use)
+profiles:
+  # High performance (low-end hardware)
+  low_power:
+    display:
+      window_width: 480
+      target_fps: 10
+    modules:
+      depth_estimation:
+        enabled: false
+      scene_analysis:
+        enabled: false
+    optimization:
+      detection_interval: 3
+
+  # Balanced (recommended)
+  balanced:
+    display:
+      window_width: 640
+      target_fps: 15
+    modules:
+      depth_estimation:
+        enabled: false
+      scene_analysis:
+        enabled: true
+    optimization:
+      detection_interval: 2
+
+  # High quality (high-end hardware)
+  high_quality:
+    display:
+      window_width: 1280
+      target_fps: 20
+    modules:
+      depth_estimation:
+        enabled: true
+      scene_analysis:
+        enabled: true
+    optimization:
+      detection_interval: 1

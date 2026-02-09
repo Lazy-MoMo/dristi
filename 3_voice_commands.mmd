@@ -1,0 +1,29 @@
+graph TD
+    A["User Presses Key"] --> B{Which Key?}
+    
+    B -->|SPACE| C["What do you see?<br/>Full Description"]
+    B -->|h| D["Any hazards?<br/>Safety Check"]
+    B -->|l| E["Where am I?<br/>Location Analysis"]
+    B -->|o| F["What objects?<br/>Object List"]
+    B -->|p| G["People nearby?<br/>People Count"]
+    B -->|r| H["Repeat<br/>Last Description"]
+    B -->|a| I["Toggle Auto-narration<br/>Every 15s"]
+    B -->|d| J["Toggle Depth View<br/>Visualization"]
+    B -->|s| K["Save Screenshot<br/>dristi_*.jpg"]
+    B -->|q| L["Exit<br/>Shutdown"]
+    
+    C --> M["generate_description<br/>src/audio/voice_engine.py"]
+    D --> M
+    E --> M
+    F --> M
+    G --> M
+    H --> M
+    
+    M --> N["🔊 speak<br/>async_mode=True"]
+    
+    I --> O["Update auto_narrate<br/>flag"]
+    J --> P["Update show_depth<br/>flag"]
+    K --> Q["cv2.imwrite"]
+    L --> R["sys.exit"]
+    
+    N --> S["Audio Output"]
